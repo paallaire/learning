@@ -1,0 +1,23 @@
+.env
+.env.*
+!.env.example
+.idea
+.vscode
+.vagrant
+node_modules
+.DS_Store
+
+/storage/*
+!/storage/rebrand
+!/storage/runtime
+!/storage/.gitkeep
+/vendor
+/web/content
+/web/cpresources
+/web/dist
+/web/web.config
+
+# Elastic Beanstalk Files
+.elasticbeanstalk/*
+!.elasticbeanstalk/*.cfg.yml
+!.elasticbeanstalk/*.global.yml

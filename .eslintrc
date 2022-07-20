@@ -1,0 +1,19 @@
+{
+  "extends": [
+    "eslint:recommended",
+    "prettier"
+  ],
+  "rules": {
+    "no-new": "off",
+    "no-prototype-builtins": "off",
+    "semi": [2, "always"]
+  },
+  "parserOptions": {
+    "sourceType": "module",
+    "ecmaVersion": 2015
+  },
+  "env": {
+    "browser": true,
+    "node": true
+  }
+}
