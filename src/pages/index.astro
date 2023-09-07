@@ -1,31 +1,35 @@
 ---
-import Layout from "@layouts/Layout.astro";
-import Card from "@components/Card.astro";
+import { getCollection } from "astro:content";
+const articleEntries = await getCollection("articles");
 
-const articles = await Astro.glob("./../pages/articles/*.astro");
-const allTags = [...new Set(articles.flatMap(obj => obj.metadata.tags))];
-const filterArticles = articles.filter(article => article.metadata.tags.includes('image'));
+const codeEntries = await Astro.glob("./../pages/codes/*.astro");
 ---
 
-<Layout title="Learning">
-  <main>
-    <button id="button">Click Me</button>
-    <div class="relative isolate pt-14">
-      <div class="py-24 sm:py-32 lg:pb-40">
-        <div class="mx-auto max-w-7xl px-6 lg:px-8">
-          <div class="mx-auto max-w-2xl text-center">
-            <h1 class="text-4xl font-bold tracking-tight text-white sm:text-6xl">Learning</h1>
-          </div>
-        </div>
-      </div>
-    </div>
+<ul>
+  {
+    articleEntries.map((article) => (
+      <li>
+        <a href={`/learning/articles/${article.slug}`}>{article.data.title}</a>
+        <h2>You might also like:</h2>
+        {article.data.tags.map((p) => (
+          <div>{p}</div>
+        ))}
+      </li>
+    ))
+  }
+</ul>
 
-    <!-- <ul role="list" class="flex gap-2 py-4">
-      {allTags.map((tag) => <li><div class="inline-flex flex-shrink-0 items-center rounded-full bg-green-50 px-1.5 py-0.5 text-xs font-medium text-green-700 ring-1 ring-inset ring-green-600/20">{tag}</div></li>)}
-    </ul> -->
+<ul>
+  {
+    codeEntries.map((article) => (
+      <li>
+        <a href={`${article.url}`}>{article.metadata.title}</a>
+        <h2>You might also like:</h2>
+        {article.metadata.tags.map((p) => (
+          <div>{p}</div>
+        ))}
+      </li>
+    ))
+  }
+</ul>
 
-    <ul role="list" class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-      {filterArticles.map((article) => <Card url={article.url} title={article.metadata.title} tags={article.metadata.tags} />)}
-    </ul>
-  </main>
-</Layout>

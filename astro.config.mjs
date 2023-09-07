@@ -6,5 +6,9 @@ import tailwind from "@astrojs/tailwind";
 export default defineConfig({
   site: "https://paallaire.github.io/",
   base: "/learning",
-  integrations: [tailwind()],
+  integrations: [
+    tailwind({
+      applyBaseStyles: false,
+    }),
+  ],
 });
