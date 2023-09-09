@@ -5,15 +5,36 @@
     "resolveJsonModule": true,
     "allowSyntheticDefaultImports": true,
     "paths": {
-      "@layouts/*": ["./src/layouts/*"],
-      "@components/*": ["./src/components/*"],
-      "@pages/*": ["./src/pages/*"],
-      "@config/*": ["./src/config/*"],
-      "@content/*": ["./src/content/*"],
-      "@styles/*": ["./src/styles/*"],
-    }
+      "@layouts/*": [
+        "./src/layouts/*"
+      ],
+      "@components/*": [
+        "./src/components/*"
+      ],
+      "@pages/*": [
+        "./src/pages/*"
+      ],
+      "@config/*": [
+        "./src/config/*"
+      ],
+      "@content/*": [
+        "./src/content/*"
+      ],
+      "@styles/*": [
+        "./src/styles/*"
+      ],
+      "@utils/*": [
+        "./src/utils/*"
+      ]
+    },
+    "jsx": "react-jsx",
+    "jsxImportSource": "react"
   },
-  "include": ["./src/**/*.ts", "./src/**/*.d.ts", "./src/**/*.tsx", "./src/**/*.vue", "./src/**/*.astro"]
+  "include": [
+    "./src/**/*.ts",
+    "./src/**/*.d.ts",
+    "./src/**/*.tsx",
+    "./src/**/*.vue",
+    "./src/**/*.astro"
+  ]
 }
-
-

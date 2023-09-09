@@ -1,0 +1,15 @@
+---
+import Tag from "@components/ui/Tag.astro";
+const { items } = Astro.props;
+---
+
+<ul class="inline-flex gap-2">
+  {items.map((item) => (
+    <li>
+      <Tag name={item.name} slug={item.slug} />
+    </li>
+  ))}
+</ul>
+
+
+

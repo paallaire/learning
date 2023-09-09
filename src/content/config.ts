@@ -4,6 +4,7 @@ const articleCollection = defineCollection({
   type: 'content', 
   schema: z.object({
     title: z.string(),
+    desc: z.string().optional(),
     tags: z.array(z.string())
   }),
 });

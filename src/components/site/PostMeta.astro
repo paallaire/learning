@@ -1,0 +1,27 @@
+---
+import Tag from '@components/ui/Tag.astro';
+import Button from '@components/ui/Button.astro';
+import { getPermalink } from '@utils/utils';
+
+const { entry } = Astro.props;
+console.log('entry:', entry.allTags)
+---
+
+<div class="flex">
+<h1 class="text-5xl text-heading mb-6 font-bold max-w-[65ch]">{entry.title}</h1>
+<Button label="Retour à l'accueil" class="ml-auto" url={getPermalink('home')} />
+</div>
+
+{entry.tags &&
+<ul class="mb-6 flex gap-2">
+  {entry.allTags.map((tag) => <li>
+    <Tag slug={tag.slug} name={tag.name} />
+    </li>)}
+</ul>
+}
+
+{entry.desc &&
+<div class="wysiwyg mb-12">
+  <p>{entry.desc}</p>
+</div>
+}

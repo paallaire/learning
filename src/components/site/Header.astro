@@ -1,0 +1,12 @@
+---
+import { SITE_NAME } from '@utils/config'
+import { getPermalink } from '@utils/utils'
+---
+
+<header class=" mb-12">
+  <div class="relative text-default py-3 mw-full md:flex md:justify-between">
+    <a href={getPermalink('home')} class="flex items-center">
+      <span class="font-bold text-white text-2xl md:text-xl whitespace-nowrap">{SITE_NAME}</span>
+    </a>
+  </div>
+</header>

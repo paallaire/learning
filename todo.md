@@ -1,9 +1,7 @@
-Collections
-- Articles
--- Title
--- Body
--- Tags
-- Codes
--- Title
--- Body
--- Tags
+
+gestion des permalinks
+tags clients vers pages catgeroy tags
+Bouton retour vers home
+404 => home
+
+

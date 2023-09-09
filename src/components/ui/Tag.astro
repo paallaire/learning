@@ -1,0 +1,7 @@
+---
+const { name, slug } = Astro.props;
+console.log('slug:', slug)
+console.log('name:', name)
+---
+
+<a href={`/learning/articles/tags/${slug}`} class="tag">{name}</a>

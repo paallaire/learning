@@ -1,7 +1,6 @@
 ---
 import Layout from "@layouts/Layout.astro";
 import PostMeta from "@components/site/PostMeta.astro";
-import { generateTagData } from "@utils/utils";
 
 import { getCollection } from "astro:content";
 
@@ -12,16 +11,11 @@ export async function getStaticPaths() {
     props: { entry },
   }));
 }
-// 2. For your template, you can get the entry directly from the prop
-const { entry } = Astro.props;
-const allTags = generateTagData(entry.data.tags);
-entry.data.allTags = allTags;
-const { Content } = await entry.render();
+
 ---
 
-<Layout title={entry.data.title}>
-  <PostMeta entry={entry.data} />
+<Layout title='tags'>
   <div class="">
-    <Content />
+    tags
   </div>
 </Layout>
