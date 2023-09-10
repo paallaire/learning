@@ -2,26 +2,19 @@
 import Layout from "@layouts/Layout.astro";
 import CardEntry from "@components/ui/CardEntry.astro";
 import { getCollection } from "astro:content";
-import { generateTagData } from "@utils/utils";
+import { generateTagsData } from "@utils/utils";
 
-const articleEntries = await getCollection("articles");
+const allArticles = await getCollection("articles");
 
-const allCategoriesUnique = new Set();
-
-articleEntries.forEach((post) => {
-  post.data.tags &&
-    post.data.tags.map((category) => {
-      allCategoriesUnique.add(category);
-    });
-
-  post.data.allTags = generateTagData(post.data.tags);
+allArticles.forEach((article) => {
+  Object.assign(article.data, { allTags: generateTagsData(article.data.tags) });
 });
 ---
 
-<Layout title="Blog Categories">
+<Layout title="Blog Tags">
   <ul class="grid gap-4 grid-cols-4">
     {
-      articleEntries.map((article) => (
+      allArticles.map((article) => (
         <li>
           <CardEntry entry={article.data} slug={article.slug} />
         </li>

@@ -32,8 +32,7 @@ export function generateSlug(string) {
     .replace(/-+$/, '');
 }
 
-export function generateTagData(tags) {
-  console.log('tags:', tags)
+export function generateTagsData(tags) {
   let tagData = [];
   tags.forEach((tag) => {
     tagData.push({
@@ -43,3 +42,20 @@ export function generateTagData(tags) {
   });
   return tagData;
 }
+
+export function getUniquesTags(posts) {
+
+  const allTagsUnique = new Set();
+
+  posts.forEach((post) => {
+    if (post.data.tags) {
+      post.data.tags.forEach((tag) => {
+        allTagsUnique.add(tag);
+      });
+    }
+  });
+
+  return allTagsUnique;
+}
+
+

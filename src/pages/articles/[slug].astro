@@ -1,22 +1,23 @@
 ---
 import Layout from "@layouts/Layout.astro";
 import PostMeta from "@components/site/PostMeta.astro";
-import { generateTagData } from "@utils/utils";
+import { generateTagsData, getUniquesTags } from "@utils/utils";
 
 import { getCollection } from "astro:content";
 
+const { entry } = Astro.props;
+
+Object.assign(entry.data, { allTags: generateTagsData(entry.data.tags) });
+
+const { Content } = await entry.render();
+
 export async function getStaticPaths() {
-  const articleEntries = await getCollection("articles");
-  return articleEntries.map((entry) => ({
+  const allArticles = await getCollection("articles");
+  return allArticles.map((entry) => ({
     params: { slug: entry.slug },
     props: { entry },
   }));
 }
-// 2. For your template, you can get the entry directly from the prop
-const { entry } = Astro.props;
-const allTags = generateTagData(entry.data.tags);
-entry.data.allTags = allTags;
-const { Content } = await entry.render();
 ---
 
 <Layout title={entry.data.title}>

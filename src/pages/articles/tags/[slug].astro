@@ -1,45 +1,40 @@
 ---
 import Layout from "@layouts/Layout.astro";
 import CardEntry from "@components/ui/CardEntry.astro";
-import { generateTagData } from "@utils/utils";
+import { generateTagsData, getUniquesTags } from "@utils/utils";
 
 import { getCollection } from "astro:content";
 
 export async function getStaticPaths() {
-  const allPosts = await getCollection("articles");
-  const allTagsUnique = new Set();
-  allPosts.forEach((post) => {
-    post.data.tags &&
-      post.data.tags.map((tag) => {
-        allTagsUnique.add(tag);
-      });
-  });
-  const allTagsData = generateTagData(allTagsUnique);
-  return allTagsData.map((tag) => {
-    const posts = allPosts.filter((post) => post.data.tags.includes(tag.name));
+  const allArticles = await getCollection("articles");
+  const allTagsUnique = getUniquesTags(allArticles);
+  const allTagsData = generateTagsData(allTagsUnique);
 
-    posts.map((post) => {
-      post.data.allTags = generateTagData(post.data.tags);
+  return allTagsData.map((tag) => {
+    const articlesFiltered = allArticles.filter((post) => post.data.tags.includes(tag.name));
+
+    allArticles.map((article) => {
+      Object.assign(article.data, { allTags: generateTagsData(article.data.tags) });
     });
 
     return {
       params: { slug: tag.slug },
       props: {
         tag: tag.name,
-        posts: posts,
+        articles: articlesFiltered,
       },
     };
   });
 }
 
-const { tag, posts } = Astro.props;
+const { tag, articles } = Astro.props;
 const title = `Blog Posts Tagged with ${tag}`;
 ---
 
 <Layout title={title}>
   <ul class="grid gap-4 grid-cols-4">
     {
-      posts.map((article) => (
+      articles.map((article) => (
         <li>
           <CardEntry entry={article.data} slug={article.slug} />
         </li>
