@@ -2,8 +2,13 @@
 import Layout from "@layouts/Layout.astro";
 import CardEntry from "@components/ui/CardEntry.astro";
 import { getCollection } from "astro:content";
+import { generateTagsData } from "@utils/utils";
 
 const allArticles = await getCollection("articles");
+
+allArticles.forEach((article) => {
+  Object.assign(article.data, { allTags: generateTagsData(article.data.tags) });
+});
 ---
 
 <Layout title="Acceuil">
