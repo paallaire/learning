@@ -1,0 +1,198 @@
+---
+const grid = [
+  {
+    label: "Home",
+  },
+  {
+    label: "About",
+  },
+  {
+    label: "News",
+  },
+  {
+    label: "Features",
+  },
+  {
+    label: "Support",
+  },
+  {
+    label: "Contact",
+  },
+];
+---
+
+<h2 class="h2 mb-4 text-center">
+  Grid responsive:
+  <span class="md:hidden">1 item</span>
+  <span class="hidden md:inline-block lg:hidden">2 item</span>
+  <span class="hidden lg:inline-block">3 item</span>
+</h2>
+
+<div class="grid-3-items">
+  {
+    grid.map((tile, index) => (
+      <div class="tile">
+        <p>{`#${index + 1}`}</p>
+      </div>
+    ))
+  }
+</div>
+
+<h2 class="h2 mt-12 mb-4 text-center">Grid offset</h2>
+
+<div class="grid-3-offset">
+  <div class="tile alt">#1</div>
+  <div class="tile alt">#2</div>
+</div>
+
+<h2 class="h2 mt-12 mb-4 text-center">Grid offset 2</h2>
+
+<div class="grid-3-offset-2">
+  <div class="tile">#1</div>
+  <div class="tile">#2</div>
+  <div class="tile">#3</div>
+  <div class="tile">#4</div>
+</div>
+
+<h2 class="h2 mt-12 mb-4 text-center">Grid Custom</h2>
+
+<div class="grid-custom">
+  <div class="tile alt">Hero</div>
+  <div class="tile">#2</div>
+  <div class="tile">#3</div>
+  <div class="tile">#4</div>
+  <div class="tile">#5</div>
+</div>
+
+<h2 class="h2 mt-12 mb-4 text-center">Grid Custom with template areas</h2>
+
+<div class="grid-custom-template-areas">
+  <div class="tile alt">Hero</div>
+  <div class="tile">#2</div>
+  <div class="tile">#3</div>
+  <div class="tile">#4</div>
+  <div class="tile">#5</div>
+</div>
+
+<style>
+  .grid-3-items {
+    display: grid;
+    gap: 16px;
+
+    @screen md {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @screen lg {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .tile {
+    @apply p-4 bg-green-600 text-white font-bold;
+
+    &.alt {
+      @apply bg-blue-600;
+    }
+  }
+
+  .grid-3-offset {
+    display: grid;
+    gap: 16px;
+    grid-template-columns: repeat(3, 1fr);
+
+    .tile:nth-child(1) {
+      grid-column-start: 2;
+    }
+
+    .tile:nth-child(2) {
+      grid-column-start: 3;
+    }
+  }
+
+  .grid-3-offset-2 {
+    display: grid;
+    gap: 16px;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, minmax(0, 1fr));
+
+    .tile:nth-child(1) {
+      grid-column-start: 2;
+      grid-row-start: 1;
+    }
+
+    .tile:nth-child(2) {
+      grid-column-start: 1;
+      grid-row-start: 2;
+    }
+
+    .tile:nth-child(4) {
+      grid-column-start: 3;
+      grid-row-start: 2;
+    }
+  }
+
+  .grid-custom {
+    display: grid;
+    gap: 16px;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, minmax(0, 1fr));
+
+    .tile:nth-child(1) {
+      grid-column: span 2 / span 2;
+    }
+
+    .tile:nth-child(3) {
+      grid-row: span 2 / span 2;
+    }
+
+    .tile:nth-child(5) {
+      grid-column: span 2 / span 2;
+    }
+  }
+
+  .grid-custom-template-areas {
+    display: grid;
+    gap: 16px;
+    grid-auto-columns: 1fr;
+    grid-template-areas:
+      "one"
+      "two"
+      "three"
+      "four"
+      "five";
+
+    .tile:nth-child(1) {
+      grid-area: one;
+    }
+
+    .tile:nth-child(2) {
+      grid-area: two;
+    }
+
+    .tile:nth-child(3) {
+      grid-area: three;
+    }
+
+    .tile:nth-child(4) {
+      grid-area: four;
+    }
+
+    .tile:nth-child(5) {
+      grid-area: five;
+    }
+
+    @screen md {
+      grid-template-areas:
+        "one one two"
+        "five five five"
+        "three four four";
+    }
+
+    @screen lg {
+      grid-template-areas:
+        "one one two five"
+        "three four four five";
+    }
+  }
+</style>

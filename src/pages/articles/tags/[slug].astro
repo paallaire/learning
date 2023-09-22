@@ -1,9 +1,12 @@
 ---
 import Layout from "@layouts/Layout.astro";
 import CardEntry from "@components/ui/CardEntry.astro";
+import HeroTag from "@components/site/HeroTag.astro";
+
 import { generateTagsData, getUniquesTags } from "@utils/utils";
 
 import { getCollection } from "astro:content";
+
 
 export async function getStaticPaths() {
   const allArticles = await getCollection("articles");
@@ -32,6 +35,9 @@ const title = `Blog Posts Tagged with ${tag}`;
 ---
 
 <Layout title={title}>
+
+  <HeroTag title={tag} />
+
   <ul class="grid gap-4 grid-cols-4">
     {
       articles.map((article) => (

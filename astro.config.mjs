@@ -8,7 +8,15 @@ import mdx from "@astrojs/mdx";
 export default defineConfig({
   site: "https://paallaire.github.io/",
   base: "/learning",
-  integrations: [tailwind({
-    applyBaseStyles: false
-  }), react(), mdx()]
+  integrations: [
+    tailwind({
+      applyBaseStyles: false,
+    }),
+    react(),
+    mdx(),
+  ],
+  redirects: {
+    '/articles/': '/learning/',
+    '/articles/tags/': '/learning/'
+  }
 });

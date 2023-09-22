@@ -3,6 +3,8 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
+console.log('SectionProgressionImages')
+
 const sectionExpertises = [
   {
     title: "SOLUTIONS SUR MESURE",

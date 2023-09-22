@@ -7,9 +7,9 @@ const url = `/learning/articles/${slug}`;
 const titleId = `cardentry-title-${slug}`;
 ---
 
-<div class="border-border border-solid border-2 rounded p-4 relative z-[1]">
+<div class="border-border border-solid border-2 rounded p-4 relative z-[1] min-h-[8.75rem] hover:bg-slate-600">
   <a href={url} class="absolute z-[-1] inset-0 block" aria-labelledby={titleId}></a>
-  <p class="text-2xl text-heading font-bold mb-3" id={titleId}>{entry.title}</p>
+  <p class="text-2xl text-heading font-bold mb-3 min-h-[4rem]" id={titleId}>{entry.title}</p>
   <TagsList items={entry.allTags} />
 </div>
 
