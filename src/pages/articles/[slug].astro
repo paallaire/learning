@@ -23,6 +23,8 @@ export async function getStaticPaths() {
 <Layout title={entry.data.title}>
   <div class="mt-40">
     <PostMeta entry={entry.data} />
+    <div class="mt-20">
     <Content />
+  </div>
   </div>
 </Layout>

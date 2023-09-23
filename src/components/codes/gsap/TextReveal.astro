@@ -1,0 +1,88 @@
+---
+
+---
+
+<h2 class="h2 mb-12">#Simple</h2>
+
+<div class="h2 text-7xl line"><span id="e1" class="words">Lorem, ipsum dolor sit</span></div>
+
+<div class="h2 my-6 text-7xl line"><span id="e2" class="words-left">Lorem, ipsum dolor sit</span></div>
+
+<div class="h2 my-6 text-7xl line"><span id="e3" class="words-left">Lorem, ipsum dolor sit</span></div>
+
+<h2 class="h2 my-12">#By Lines-Words</h2>
+
+<div class="h2 text-7xl line" id="eLines">
+  Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum deserunt ea distinctio odio mollitia obcaecati earum iusto ipsam. Unde aperiam ipsum quam nostrum expedita! Ab eos deserunt modi at
+  sed!
+</div>
+
+<h2 class="h2 my-12">#By Chars</h2>
+
+<div class="h2 text-7xl line" id="eChars">
+  Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum deserun!
+</div>
+
+<style></style>
+
+<style is:global>
+  .line {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+  }
+
+  .word,
+  .words {
+    @apply translate-y-full inline-block;
+  }
+
+  .words-left {
+    @apply -translate-x-full inline-block opacity-0;
+  }
+
+  #eChars .char {
+    @apply opacity-0;
+  }
+
+</style>
+
+<script>
+  import SplitType from "split-type";
+  import { gsap } from "gsap";
+
+  // Simple
+  // --------------------------------------------
+  gsap.to("#e1", {
+    y: 0,
+    duration: 1,
+  });
+
+  // Simple (left)
+  // --------------------------------------------
+  gsap.to("#e2", {
+    x: 0,
+    opacity: 1,
+    duration: 1,
+  });
+
+  //By Lines-Words
+  // --------------------------------------------
+  const eLines = new SplitType("#eLines", { types: "words, lines" });
+
+  gsap.to("#eLines .word", {
+    y: 0,
+    duration: 0.75,
+    stagger: 0.25,
+    delay: 0.05,
+  });
+
+  //By chars
+  // --------------------------------------------
+  const eChars = new SplitType("#eChars", { types: "chars" });
+
+  gsap.to("#eChars .char", {
+    opacity: 1,
+    duration: 0.25,
+    stagger: 0.05,
+    delay: 0.05,
+  });
+</script>
