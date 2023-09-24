@@ -1,5 +1,5 @@
 ---
-
+import Anchor from "@components/site/Anchor.astro";
 ---
 
 <section id="section-hero" class="flex justify-center items-center p-20 bg-green-700 text-white h-[100vh]">
@@ -71,7 +71,7 @@
 
   gsap.registerPlugin(ScrollTrigger);
 
-  console.log('SectionChangeColor')
+  console.log("SectionChangeColor");
 
   ScrollTrigger.create({
     trigger: "#section-features",

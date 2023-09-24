@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@300;400;700&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -6,8 +6,7 @@
 
 @layer base {
   html {
-    font-family: Inter, system-ui, sans-serif;
-    @apply bg-surface text-text px-4 md:px-8;
+    @apply bg-surface text-gray-300 px-4 md:px-8 font-body;
   }
 }
 
@@ -17,11 +16,15 @@
   }
 
   .h1 {
-    @apply text-5xl text-heading  font-bold
+    @apply text-5xl text-white font-bold font-heading;
   }
 
   .h2 {
-    @apply text-4xl text-heading  font-bold
+    @apply text-4xl text-white font-bold font-heading;
+  }
+
+  .h3 {
+    @apply text-3xl text-white font-bold font-heading;
   }
 }
 

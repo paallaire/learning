@@ -1,0 +1,42 @@
+---
+interface Props {
+  direction: string;
+  rate: string;
+  duplicate: string;
+  text: string;
+}
+
+const { direction, rate, duplicate, text } = Astro.props;
+---
+
+<div class="marquee" data-module="marquee" data-marquee-rate={rate} data-marquee-direction={direction} data-marquee-duplicate={duplicate}>
+  <div class="marquee__wrapper">
+    <div class="marquee__item">
+      <div>{text}</div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .marquee {
+    width: 100%;
+    overflow: hidden;
+    border-top: 2px solid white;
+    border-bottom: 2px solid white;
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+  }
+
+  .marquee__wrapper {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    width: fit-content;
+  }
+
+  .marquee__item {
+    font-size: 5em;
+    text-transform: uppercase;
+  }
+</style>

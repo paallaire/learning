@@ -6,9 +6,22 @@ tags:
 - animation
 ---
 
-import Marquee from "@components/codes/ui/Marquee.astro";
+import Body from "@components/site/Body.astro";
+import MarqueeJS from "@components/codes/ui/MarqueeJS.astro";
+import MarqueeCSS from "@components/codes/ui/MarqueeCSS.astro";
+import Anchor from "@components/site/Anchor.astro";
 
-<Marquee id="m1" speed="2" />
+<Anchor label="Marquee JS - direction left" />
+
+<MarqueeJS id="m1" rate="100" direction="left" text="&nbsp;*&nbsp;Quebec * Montréal * Brossard" duplicate="10"  />
+
+<Anchor label="Marquee JS - direction right" />
+
+<MarqueeJS id="m1" rate="100" direction="right" text="&nbsp;*&nbsp;hello world" duplicate="10"  />
+
+<Anchor label="Marquee CSS - direction left" />
+
+<MarqueeCSS id="mcss1" text="&nbsp;*&nbsp;Quebec * Montréal * Brossard"  />
 
 
 

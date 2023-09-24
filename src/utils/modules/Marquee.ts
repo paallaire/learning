@@ -1,7 +1,7 @@
 import { gsap } from "gsap";
 
 export default class Marquee {
-  private nbItems: number = 10;
+  private nbDuplicate: number = 6;
   private elMarquee: HTMLElement;
   private elMarqueeWrapper: HTMLElement;
   private firstItem: HTMLElement;
@@ -12,21 +12,27 @@ export default class Marquee {
   private tween: gsap.core.Tween;
 
   private direction: string = 'left';
-  private duration: number = 10;
 
   constructor(elMarqueeDom: HTMLElement) {
     this.elMarquee = elMarqueeDom;
     this.elMarqueeWrapper = this.elMarquee.querySelector(".marquee__wrapper") as HTMLElement;
     this.firstItem = this.elMarquee.querySelector(".marquee__item") as HTMLElement;
 
-    for (let index = 1; index < this.nbItems; index++) {
+    if(this.elMarquee.hasAttribute('data-marquee-duplicate')) {
+      this.nbDuplicate = parseInt(this.elMarquee.getAttribute('data-marquee-duplicate') as string) ?? this.nbDuplicate;
+    }
+   
+    for (let index = 1; index < this.nbDuplicate; index++) {
       const node = this.firstItem.cloneNode(true) as HTMLElement;
       this.elMarqueeWrapper.appendChild(node);
     }
 
     this.elMarqueeItems = this.elMarquee.querySelectorAll(".marquee__item") as NodeListOf<HTMLElement>;
     this.direction = this.elMarquee.getAttribute('data-marquee-direction') ?? this.direction;
-    this.rate = parseInt(this.elMarquee.getAttribute('data-marquee-rate') as string) ?? this.rate;
+
+    if(this.elMarquee.hasAttribute('data-marquee-rate')) {
+      this.rate = parseInt(this.elMarquee.getAttribute('data-marquee-rate') as string) ?? this.rate;
+    }
 
     this.distance = this.elMarqueeWrapper.clientWidth;
     this.time = this.distance / this.rate;
@@ -36,22 +42,15 @@ export default class Marquee {
     });
 
     this.tween = gsap
-      .to(this.elMarqueeWrapper, {
-        x: this.direction === 'right' ? this.distance : this.distance * -1,
-        duration: this.time,
+      .to(this.elMarqueeItems, {
+        xPercent: this.direction === 'right' ? 100 : -100,
+        duration: 10 ,
         ease: "linear",
         repeat: -1,
       })
-
-    // this.tween = gsap
-    //   .to(this.elMarqueeItems, {
-    //     xPercent: this.direction === 'right' ? 100 : -100,
-    //     duration: this.duration ,
-    //     ease: "linear",
-    //     repeat: -1,
-    //   })
-    //   .totalProgress(0.5);
+      .totalProgress(0.5);
   }
 }
+
 
 

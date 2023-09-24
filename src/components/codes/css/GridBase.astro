@@ -1,4 +1,6 @@
 ---
+import Anchor from "@components/site/Anchor.astro";
+
 const grid = [
   {
     label: "Home",
@@ -21,12 +23,7 @@ const grid = [
 ];
 ---
 
-<h2 class="h2 mb-4 text-center">
-  Grid responsive:
-  <span class="md:hidden">1 item</span>
-  <span class="hidden md:inline-block lg:hidden">2 item</span>
-  <span class="hidden lg:inline-block">3 item</span>
-</h2>
+<Anchor label="Grid responsive" />
 
 <div class="grid-3-items">
   {
@@ -38,14 +35,14 @@ const grid = [
   }
 </div>
 
-<h2 class="h2 mt-12 mb-4 text-center">Grid offset</h2>
+<Anchor label="Grid offset" />
 
 <div class="grid-3-offset">
   <div class="tile alt">#1</div>
   <div class="tile alt">#2</div>
 </div>
 
-<h2 class="h2 mt-12 mb-4 text-center">Grid offset 2</h2>
+<Anchor label="Grid offset 2" />
 
 <div class="grid-3-offset-2">
   <div class="tile">#1</div>
@@ -54,7 +51,7 @@ const grid = [
   <div class="tile">#4</div>
 </div>
 
-<h2 class="h2 mt-12 mb-4 text-center">Grid Custom</h2>
+<Anchor label="Grid Custom" />
 
 <div class="grid-custom">
   <div class="tile alt">Hero</div>
@@ -64,7 +61,7 @@ const grid = [
   <div class="tile">#5</div>
 </div>
 
-<h2 class="h2 mt-12 mb-4 text-center">Grid Custom with template areas</h2>
+<Anchor label="Grid Custom with template areas" />
 
 <div class="grid-custom-template-areas">
   <div class="tile alt">Hero</div>

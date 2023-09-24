@@ -2,6 +2,10 @@
 export default {
   content: ["./src/**/*.{astro,html,js,jsx,md,mdx,ts,tsx}"],
   theme: {
+    fontFamily: {
+      'heading': ['Inter', 'sans-serif'],
+      'body': ['Poppins', 'sans-serif'],
+    },
     extend: {
       colors: {
         surface: "#111827",
@@ -16,7 +20,19 @@ export default {
         DEFAULT: {
           css: {
             maxWidth: "none",
-            color: "#b0b0bc"
+            color: "currentColor",
+            a: {
+              color: 'currentColor',
+              '&:hover': {
+                color: 'currentColor',
+              },
+            },
+            h2: {
+              color: 'white',
+            },
+            strong: {
+              color: 'white',
+            },
           },
         },
       },

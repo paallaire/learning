@@ -1,9 +1,9 @@
 ---
-import '@styles/main.css';
-import Header from '@components/site/Header.astro';
+import "@styles/main.css";
+import Header from "@components/site/Header.astro";
 
 interface Props {
-	title: string;
+  title: string;
 }
 
 const { title } = Astro.props;
@@ -11,15 +11,39 @@ const { title } = Astro.props;
 
 <!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="description" content="Astro description" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>{title}</title>
-	</head>
-	<body class="bg-gray-900">
-		<Header />
-		<slot />
-	</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Astro description" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+  </head>
+  <body class="bg-gray-900">
+    <Header />
+    <slot />
+  </body>
 </html>
+
+<script>
+  import Anchor from "@utils/modules/Anchor";
+
+  window.addEventListener("DOMContentLoaded", (e) => {
+    const elAnchors = document.querySelectorAll('[data-module="anchor"]');
+    console.log("Anchors:", elAnchors);
+
+    elAnchors.forEach((anchor) => {
+      const anchorInstance = new Anchor(anchor);
+    });
+  });
+
+  import Marquee from "@utils/modules/Marquee";
+
+  window.addEventListener("DOMContentLoaded", (e) => {
+    const elMarquees = document.querySelectorAll('[data-module="marquee"]');
+    console.log("elMarquees:", elMarquees);
+
+    elMarquees.forEach((marquee) => {
+      const marqueeInstance = new Marquee(marquee);
+    });
+  });
+</script>

@@ -1,27 +1,8 @@
 ---
-const grid = [
-  {
-    label: "Home",
-  },
-  {
-    label: "About",
-  },
-  {
-    label: "News",
-  },
-  {
-    label: "Features",
-  },
-  {
-    label: "Support",
-  },
-  {
-    label: "Contact",
-  },
-];
+import Anchor from "@components/site/Anchor.astro";
 ---
 
-<h2 class="h2 mt-12 mb-4 text-center">Grid offset</h2>
+<Anchor label="Grid offset" />
 
 <div class="grid-offset">
   <div class="image">
@@ -30,8 +11,9 @@ const grid = [
   <div class="tile text">
     <h2 class="h2 mb-4">Lorem title</h2>
     <p>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus consequatur, ratione culpa, incidunt suscipit qui harum aspernatur, officia maxime nihil ipsa magnam consectet  Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus consequatur, ratione culpa, incidunt suscipit qui harum aspernatur, officia maxime nihil ipsa magnam consectetur veritatis
-      sequi minus quos dolorem ad nemo.ur veritatis sequi minus quos dolorem ad nemo.
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus consequatur, ratione culpa, incidunt suscipit qui harum aspernatur, officia maxime nihil ipsa magnam consectet Lorem ipsum
+      dolor sit amet consectetur adipisicing elit. Accusamus consequatur, ratione culpa, incidunt suscipit qui harum aspernatur, officia maxime nihil ipsa magnam consectetur veritatis sequi minus quos
+      dolorem ad nemo.ur veritatis sequi minus quos dolorem ad nemo.
     </p>
   </div>
   <div class="image2">
@@ -84,7 +66,6 @@ const grid = [
       position: relative;
       isolation: isolate; /* = position: relative; z-index: 20; */
     }
-
   }
 
   .tile {
