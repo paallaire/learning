@@ -7,21 +7,66 @@ tags:
 ---
 
 import Body from "@components/site/Body.astro";
-import MarqueeJS from "@components/codes/ui/MarqueeJS.astro";
-import MarqueeCSS from "@components/codes/ui/MarqueeCSS.astro";
 import Anchor from "@components/site/Anchor.astro";
+import Marquee from "@components/codes/modules/Marquee.astro";
 
-<Anchor label="Marquee JS - direction left" />
+<Anchor label="Marquee text - direction left" />
 
-<MarqueeJS id="m1" rate="100" direction="left" text="&nbsp;*&nbsp;Quebec * Montréal * Brossard" duplicate="10"  />
+<Marquee direction="left" speed="fast" duplicate="1">
+    <li>HTML</li>
+    <li>CSS</li>
+    <li>JS</li>
+    <li>SSG</li>
+    <li>webdev</li>
+    <li>animation</li>
+    <li>UI/UX</li>
+    <li>HTML</li>
+    <li>CSS</li>
+    <li>JS</li>
+    <li>SSG</li>
+    <li>CSS</li>
+    <li>webdev</li>
+    <li>animation</li>
+    <li>UI/UX</li>
+    <li>HTML</li>
+    <li>CSS</li>
+    <li>JS</li>
+    <li>SSG</li>
+    <li>webdev</li>
+    <li>animation</li>
+    <li>UI/UX</li>
+    <li>HTML</li>
+    <li>CSS</li>
+    <li>JS</li>
+    <li>SSG</li>
+    <li>webdev</li>
+    <li>animation</li>
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+    <li>5</li>
+    <li>6</li>
+    <li>7</li>
+    <li>8</li>
+    <li>9</li>
+    <li>10</li>
+</Marquee>
 
-<Anchor label="Marquee JS - direction right" />
+<Anchor label="Marquee images - direction left" />
 
-<MarqueeJS id="m1" rate="100" direction="right" text="&nbsp;*&nbsp;hello world" duplicate="10"  />
-
-<Anchor label="Marquee CSS - direction left" />
-
-<MarqueeCSS id="mcss1" text="&nbsp;*&nbsp;Quebec * Montréal * Brossard"  />
-
+<Marquee direction="right" speed="fast" duplicate="1">
+    <img src="https://i.pravatar.cc/100?img=1" alt="" />
+    <img src="https://i.pravatar.cc/125?img=2" alt="" />
+    <img src="https://i.pravatar.cc/100?img=3" alt="" />
+    <img src="https://i.pravatar.cc/250?img=4" alt="" />
+    <img src="https://i.pravatar.cc/250?img=5" alt="" />
+    <img src="https://i.pravatar.cc/200?img=6" alt="" />
+    <img src="https://i.pravatar.cc/150?img=7" alt="" />
+    <img src="https://i.pravatar.cc/250?img=8" alt="" />
+    <img src="https://i.pravatar.cc/200?img=9" alt="" />
+    <img src="https://i.pravatar.cc/250?img=10" alt="" />
+    <img src="https://i.pravatar.cc/200?img=11" alt="" />
+</Marquee>
 
 

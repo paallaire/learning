@@ -29,21 +29,30 @@ const { title } = Astro.props;
 
   window.addEventListener("DOMContentLoaded", (e) => {
     const elAnchors = document.querySelectorAll('[data-module="anchor"]');
-    console.log("Anchors:", elAnchors);
 
     elAnchors.forEach((anchor) => {
-      const anchorInstance = new Anchor(anchor);
+      new Anchor(anchor as HTMLElement);
     });
   });
 
   import Marquee from "@utils/modules/Marquee";
 
   window.addEventListener("DOMContentLoaded", (e) => {
-    const elMarquees = document.querySelectorAll('[data-module="marquee"]');
-    console.log("elMarquees:", elMarquees);
+    const elMarquees = document.querySelectorAll(".marquee");
 
     elMarquees.forEach((marquee) => {
-      const marqueeInstance = new Marquee(marquee);
+      new Marquee(marquee as HTMLElement);
+    });
+  });
+
+  import Accordion from "@utils/modules/Accordion";
+
+  window.addEventListener("DOMContentLoaded", (e) => {
+    const elAccordions = document.querySelectorAll(`[data-module="accordion"]`);
+    console.log("elAccordions:", elAccordions);
+
+    elAccordions.forEach((accordion) => {
+      new Accordion(accordion as HTMLElement);
     });
   });
 </script>

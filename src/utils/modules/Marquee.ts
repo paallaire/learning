@@ -1,56 +1,32 @@
-import { gsap } from "gsap";
-
 export default class Marquee {
-  private nbDuplicate: number = 6;
   private elMarquee: HTMLElement;
-  private elMarqueeWrapper: HTMLElement;
-  private firstItem: HTMLElement;
-  private elMarqueeItems: NodeListOf<HTMLElement>;
-  private distance: number;
-  private rate: number = 200;
-  private time: number;
-  private tween: gsap.core.Tween;
+  private nbLoopDuplicate: number;
 
-  private direction: string = 'left';
+  constructor(elMarquee: HTMLElement) {
+    this.elMarquee = elMarquee;
+    this.nbLoopDuplicate = 2;
 
-  constructor(elMarqueeDom: HTMLElement) {
-    this.elMarquee = elMarqueeDom;
-    this.elMarqueeWrapper = this.elMarquee.querySelector(".marquee__wrapper") as HTMLElement;
-    this.firstItem = this.elMarquee.querySelector(".marquee__item") as HTMLElement;
-
-    if(this.elMarquee.hasAttribute('data-marquee-duplicate')) {
-      this.nbDuplicate = parseInt(this.elMarquee.getAttribute('data-marquee-duplicate') as string) ?? this.nbDuplicate;
+    if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      this.addAnimation();
     }
-   
-    for (let index = 1; index < this.nbDuplicate; index++) {
-      const node = this.firstItem.cloneNode(true) as HTMLElement;
-      this.elMarqueeWrapper.appendChild(node);
+  }
+
+  private addAnimation(): void {
+    const marqueeInner = this.elMarquee.querySelector(".marquee__inner") as HTMLElement;
+    const marqueeContent = Array.from(marqueeInner.children) as HTMLElement[];
+
+    this.elMarquee.setAttribute("data-animated", "true");
+
+    if(this.elMarquee.hasAttribute('data-duplicate')) {
+      this.nbLoopDuplicate = parseInt(this.elMarquee.getAttribute('data-duplicate') as string);
     }
 
-    this.elMarqueeItems = this.elMarquee.querySelectorAll(".marquee__item") as NodeListOf<HTMLElement>;
-    this.direction = this.elMarquee.getAttribute('data-marquee-direction') ?? this.direction;
-
-    if(this.elMarquee.hasAttribute('data-marquee-rate')) {
-      this.rate = parseInt(this.elMarquee.getAttribute('data-marquee-rate') as string) ?? this.rate;
+    for (let index = 0; index < this.nbLoopDuplicate; index++) {
+      marqueeContent.forEach((item) => {
+        const duplicatedItem = item.cloneNode(true) as HTMLElement;
+        duplicatedItem.setAttribute("aria-hidden", "true");
+        marqueeInner.appendChild(duplicatedItem);
+      });
     }
-
-    this.distance = this.elMarqueeWrapper.clientWidth;
-    this.time = this.distance / this.rate;
-
-    gsap.set(this.elMarqueeWrapper, {
-      xPercent: -50,
-    });
-
-    this.tween = gsap
-      .to(this.elMarqueeItems, {
-        xPercent: this.direction === 'right' ? 100 : -100,
-        duration: 10 ,
-        ease: "linear",
-        repeat: -1,
-      })
-      .totalProgress(0.5);
   }
 }
-
-
-

@@ -1,0 +1,50 @@
+---
+interface Props {
+  id: string;
+  title: string;
+  theme: string;
+  expanded: boolean;
+}
+
+const { id, title, theme = "base", expanded = false } = Astro.props;
+---
+
+<div id={id} class="c-accordion" data-module="accordion" data-theme="base">
+  <button class="c-accordion__button" aria-expanded={expanded}>{title}</button>
+  <div class="c-accordion__content">
+    <div class="c-accordion__content-wrapper">
+      <div class="c-accordion__content-body">
+        <slot />
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .c-accordion.is-active .c-accordion__content {
+    grid-template-rows: 1fr;
+  }
+
+  .c-accordion__content {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 0.5s ease-in-out;
+  }
+
+  .c-accordion__content-wrapper {
+    overflow: hidden;
+  }
+
+  /* theme base */
+  .c-accordion[data-theme="base"] {
+    @apply bg-gray-800 text-white rounded-md text-sm;
+  }
+
+  .c-accordion[data-theme="base"] .c-accordion__button {
+    @apply font-semibold p-4;
+  }
+
+  .c-accordion[data-theme="base"] .c-accordion__content-body {
+    @apply p-4 leading-loose text-base;
+  }
+</style>
