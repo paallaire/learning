@@ -55,4 +55,15 @@ const { title } = Astro.props;
       new Accordion(accordion as HTMLElement);
     });
   });
+
+  import Tab from "@utils/modules/Tab";
+
+  window.addEventListener("DOMContentLoaded", (e) => {
+    const elTabs = document.querySelectorAll(`[data-module="tab"]`);
+    console.log("elTabs:", elTabs);
+
+    elTabs.forEach((tab) => {
+      new Tab(tab as HTMLElement);
+    });
+  });
 </script>

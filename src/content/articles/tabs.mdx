@@ -1,0 +1,64 @@
+---
+title: "Tab"
+tags:
+  - css
+  - tabs
+  - animation
+---
+
+import Body from "@components/site/Body.astro";
+import Anchor from "@components/site/Anchor.astro";
+import Tab from "@components/codes/modules/Tab.astro";
+
+<Anchor label="Default" />
+
+<Tab id="base" description="Accusantium eius quo eligendi">
+  <Fragment slot="tab-1">Tab 1</Fragment>
+  <Fragment slot="tab-2">Tab 2</Fragment>
+  <Fragment slot="tab-3">Tab 3</Fragment>
+
+  <Fragment slot="content-1">
+    <h2>Panel 1</h2>
+    <p>Hello world</p>
+  </Fragment>
+
+  <Fragment slot="content-2">
+    <h2>Panel 2</h2>
+
+    <img
+      height="400"
+      src="https://res.cloudinary.com/dzfylx93l/image/upload/v1664340439/astro-takeoff-1_ecdfxf.gif"
+    />
+  </Fragment>
+
+  <Fragment slot="content-3">
+    <h2>Panel 3</h2>
+  </Fragment>
+</Tab>
+
+<Anchor label="Index 2 open" />
+
+<Tab id="baseTab1Open" description="Accusantium eius quo eligendi" initialOpen="2">
+  <Fragment slot="tab-1">Tab 1</Fragment>
+  <Fragment slot="tab-2">Tab 2</Fragment>
+  <Fragment slot="tab-3">Tab 3</Fragment>
+
+  <Fragment slot="content-1">
+    <h2>Panel 1</h2>
+    <p>Hello world</p>
+  </Fragment>
+
+  <Fragment slot="content-2">
+    <h2>Panel 2</h2>
+
+    <img
+      height="400"
+      src="https://res.cloudinary.com/dzfylx93l/image/upload/v1664340439/astro-takeoff-1_ecdfxf.gif"
+    />
+  </Fragment>
+
+  <Fragment slot="content-3">
+    <h2>Panel 3</h2>
+  </Fragment>
+</Tab>
+

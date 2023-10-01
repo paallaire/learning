@@ -9,7 +9,7 @@ interface Props {
 const { id, title, theme = "base", expanded = false } = Astro.props;
 ---
 
-<div id={id} class="c-accordion" data-module="accordion" data-theme="base">
+<div id={id} class="c-accordion" data-module="accordion" data-theme={theme}>
   <button class="c-accordion__button" aria-expanded={expanded}>{title}</button>
   <div class="c-accordion__content">
     <div class="c-accordion__content-wrapper">

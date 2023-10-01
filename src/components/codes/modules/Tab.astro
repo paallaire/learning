@@ -1,0 +1,67 @@
+---
+interface Props {
+  id: string;
+  description: string;
+  theme: string;
+  initialOpen: string;
+}
+
+const { id, description, theme = "base", initialOpen = 0 } = Astro.props;
+
+const slots = Object.entries(Astro.slots);
+const buttonSlots: string[] = [];
+const contentSlots: string[] = [];
+
+slots.forEach(([name]) => {
+  if (name.startsWith("tab")) {
+    buttonSlots.push(name);
+  }
+
+  if (name.startsWith("content")) {
+    contentSlots.push(name);
+  }
+});
+---
+
+<div id={id} class="tabs" data-module="tab" data-theme={theme} aria-label={description} data-initial-tab={initialOpen}>
+  <div class="tab-group-buttons" role="tablist">
+    {
+      buttonSlots.map(async (buttonName, index) => {
+        return <button class="tab-button" set:html={await Astro.slots.render(buttonName)} />;
+      })
+    }
+  </div>
+
+  {
+    contentSlots.map(async (contentName, index) => {
+      return <div class="tab-content" set:html={await Astro.slots.render(contentName)} />;
+    })
+  }
+</div>
+
+<style>
+  .tab-button[aria-selected="true"] {
+    background-color: #fff;
+    font-weight: bold;
+    border-bottom: 1px solid #fff;
+  }
+
+  /* theme base */
+  .tabs[data-theme="base"] {
+    .tab-group-buttons {
+      @apply flex;
+    }
+
+    .tab-button {
+      @apply bg-gray-800 text-white text-sm p-3;
+    }
+
+    .tab-content {
+      @apply bg-gray-800 text-white text-base p-3 hidden;
+
+      &.is-active {
+        @apply block;
+      }
+    }
+  }
+</style>
