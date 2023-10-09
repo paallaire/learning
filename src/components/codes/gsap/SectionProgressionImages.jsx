@@ -3,7 +3,7 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
-console.log('SectionProgressionImages')
+console.log("SectionProgressionImages");
 
 const sectionExpertises = [
   {
@@ -63,13 +63,10 @@ export function SectionProgressionImages() {
             end: "bottom top",
             scrub: true,
             onUpdate: (e) => {
-
-              if (index < (sections.length - 1)) {
-                sectionImage.style.clipPath = `inset(0px 0px ${e.progress*100}%)`;
+              if (index < sections.length - 1) {
+                sectionImage.style.clipPath = `inset(0px 0px ${e.progress * 100}%)`;
                 console.log(`section # ${index} progress`, e.progress);
               }
-
-
             },
           },
         });
@@ -84,12 +81,13 @@ export function SectionProgressionImages() {
       <div ref={main} className="bg-black text-white grid grid-cols-2 gap-7 overflow-x-hidden">
         <div ref={containerContent}>
           {sectionExpertises.map((section, index) => {
-
             if (index === 0) {
               return (
                 <section key={section.id} className="h-screen bg-blue-500">
-                  <h2>{section.title}</h2>
-                  <p>{section.content}</p>
+                  <div className="wysiwyg p-4">
+                    <h2>{section.title}</h2>
+                    <p>{section.content}</p>
+                  </div>
                 </section>
               );
             }
@@ -97,16 +95,20 @@ export function SectionProgressionImages() {
             if (index === 2) {
               return (
                 <section key={section.id} className="h-screen bg-yellow-500">
-                  <h2>{section.title}</h2>
-                  <p>{section.content}</p>
+                  <div className="wysiwyg wysiwyg-light p-4">
+                    <h2>{section.title}</h2>
+                    <p>{section.content}</p>
+                  </div>
                 </section>
               );
             }
 
             return (
               <section key={section.id} className="h-screen bg-red-500">
-                <h2>{section.title}</h2>
-                <p>{section.content}</p>
+                  <div className="wysiwyg wysiwyg-light p-4">
+                    <h2>{section.title}</h2>
+                    <p>{section.content}</p>
+                  </div>
               </section>
             );
           })}

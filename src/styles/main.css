@@ -6,7 +6,7 @@
 
 @layer base {
   html {
-    @apply bg-surface text-gray-300 px-4 md:px-8 font-body;
+    @apply bg-[#111827] text-gray-300 px-4 md:px-8 font-body;
   }
 }
 
@@ -26,6 +26,13 @@
   .h3 {
     @apply text-3xl text-white font-bold font-heading;
   }
+
+  .button {
+    @apply rounded-md bg-indigo-500 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500;
+  }
+
 }
 
-
+.wysiwyg-dark {
+  @apply text-[#edeef0];
+}

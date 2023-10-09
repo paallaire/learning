@@ -1,0 +1,32 @@
+---
+title: "slideOver"
+tags:
+  - js
+  - slideOver
+  - animation
+---
+
+import Body from "@components/site/Body.astro";
+import Anchor from "@components/site/Anchor.astro";
+import SlideOver from "@components/codes/modules/SlideOver.astro";
+
+<Anchor label="Default" />
+
+<SlideOver id="slideOver-base" />
+
+<div class="px-8">
+  <div class="wysiwyg wysiwyg-dark max-w-[65ch]">
+    <h2>Lorem Title</h2>
+
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque veritatis, odio possimus distinctio non molestiae aut corrupti iste eligendi eius natus suscipit praesentium corporis ullam
+      quaerat dolor accusantium! Culpa, atque.
+    </p>
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque veritatis, odio possimus distinctio non molestiae aut corrupti iste eligendi eius natus suscipit praesentium corporis ullam
+      quaerat dolor accusantium! Culpa, atque.
+    </p>
+
+    <button type="button" class="button" data-slideOver-target="slideOver-base">Open</button>
+  </div>
+</div>

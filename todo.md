@@ -1,18 +1,17 @@
 # Components
-- [ ] Accordion
-- [ ] Toggle content
+- [X] Accordion
+- [X] Toggle content
 - [ ] Modal
-- [ ] Accordion
-- [ ] Marquee
+- [X] Marquee
 - [ ] Mobile Menu
 - [ ] Sidebar Menu (Slide-overs)
+- [ ] Megamenu
 - [ ] Tooltips
 - [ ] Dropdown menu
 - [ ] Form validation
 - [ ] Input Toggle
 - [ ] Notifications
 - [ ] Slider ( swiper ?)
-- [ ] Megamenu
 - [ ] Button change state eg: loading
 - [ ] Custom cursor
 

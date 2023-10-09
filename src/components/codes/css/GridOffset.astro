@@ -8,13 +8,15 @@ import Anchor from "@components/site/Anchor.astro";
   <div class="image">
     <img src="https://picsum.photos/id/238/600/600" alt="" />
   </div>
-  <div class="tile text">
-    <h2 class="h2 mb-4">Lorem title</h2>
-    <p>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus consequatur, ratione culpa, incidunt suscipit qui harum aspernatur, officia maxime nihil ipsa magnam consectet Lorem ipsum
-      dolor sit amet consectetur adipisicing elit. Accusamus consequatur, ratione culpa, incidunt suscipit qui harum aspernatur, officia maxime nihil ipsa magnam consectetur veritatis sequi minus quos
-      dolorem ad nemo.ur veritatis sequi minus quos dolorem ad nemo.
-    </p>
+  <div class="text p-4 !bg-white">
+    <div class="wysiwyg wysiwyg-light">
+      <h2>Lorem title dolor sit amet consectetur adipisicing elit</h2>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus consequatur, ratione culpa, incidunt suscipit qui harum aspernatur, officia maxime nihil ipsa magnam consectet Lorem ipsum
+        dolor sit amet consectetur adipisicing elit. Accusamus consequatur, ratione culpa, incidunt suscipit qui harum aspernatur, officia maxime nihil ipsa magnam consectetur veritatis sequi minus
+        quos dolorem ad nemo.ur veritatis sequi minus quos dolorem ad nemo.
+      </p>
+    </div>
   </div>
   <div class="image2">
     <img src="https://picsum.photos/id/240/600/600" alt="" />
@@ -65,14 +67,6 @@ import Anchor from "@components/site/Anchor.astro";
       align-self: flex-start;
       position: relative;
       isolation: isolate; /* = position: relative; z-index: 20; */
-    }
-  }
-
-  .tile {
-    @apply p-4 bg-green-600 text-white font-bold;
-
-    &.alt {
-      @apply bg-blue-600;
     }
   }
 </style>

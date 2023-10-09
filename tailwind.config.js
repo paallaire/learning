@@ -1,41 +1,51 @@
 /** @type {import('tailwindcss').Config} */
+const colors = require("tailwindcss/colors");
+
 export default {
   content: ["./src/**/*.{astro,html,js,jsx,md,mdx,ts,tsx}"],
   theme: {
     fontFamily: {
-      'heading': ['Inter', 'sans-serif'],
-      'body': ['Poppins', 'sans-serif'],
+      heading: ["Inter", "sans-serif"],
+      body: ["Poppins", "sans-serif"],
     },
     extend: {
       colors: {
-        surface: "#111827",
-        "surface-subdued": "#1e1e23",
-        heading: "#e7e7f1",
-        text: "#b0b0bc",
-        "text-strong": "#e7e7f1",
-        "text-subdued": "#85858e",
-        border: "#373737",
+        dark: {
+          border: "#373737",
+          heading: "rgb(237, 238, 240)",
+          body: "rgba(241, 247, 254, 0.71)",
+          surface: "rgb(30, 41, 59)",
+        },
+        light: {
+          heading: "rgb(15, 23, 42)",
+          body: "rgb(51, 65, 85)",
+          surface: "#fff"
+        },
       },
-      typography: {
+      typography: ({ theme }) => ({
         DEFAULT: {
           css: {
+            "--tw-prose-body": theme("colors.dark.body"),
+            "--tw-prose-headings": theme("colors.dark.heading"),
             maxWidth: "none",
-            color: "currentColor",
             a: {
-              color: 'currentColor',
-              '&:hover': {
-                color: 'currentColor',
+              color: "currentColor",
+              "&:hover": {
+                color: "currentColor",
               },
             },
             h2: {
-              color: 'white',
-            },
-            strong: {
-              color: 'white',
+              fontFamily: '"Inter", sans-serif',
             },
           },
         },
-      },
+        light: {
+          css: {
+            "--tw-prose-body": theme("colors.light.body"),
+            "--tw-prose-headings": theme("colors.light.heading"),
+          },
+        },
+      }),
     },
   },
   plugins: [
