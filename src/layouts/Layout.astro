@@ -71,11 +71,19 @@ const { title } = Astro.props;
     const elslideOvers = document.querySelectorAll(`[data-module="slideOver"]`);
     console.log("elslideOvers:", elslideOvers);
 
-    elslideOvers.forEach((slidrOver) => {
-      new SlideOver(slidrOver as HTMLElement);
+    elslideOvers.forEach((slideOver) => {
+      new SlideOver(slideOver as HTMLElement);
     });
+  });
 
-    let test = document.querySelectorAll(`[data-module="slideOver"]`);
-    console.log("test:", test);
+  import MegaMenu from "@utils/modules/MegaMenu";
+
+  window.addEventListener("DOMContentLoaded", (e) => {
+    const elMegaMenus = document.querySelectorAll(`[data-module="megaMenu"]`);
+    console.log("elMegaMenus:", elMegaMenus);
+
+    elMegaMenus.forEach((elMegaMenu) => {
+      new MegaMenu(elMegaMenu as HTMLElement);
+    });
   });
 </script>

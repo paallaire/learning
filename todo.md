@@ -3,8 +3,8 @@
 - [X] Toggle content
 - [ ] Modal
 - [X] Marquee
-- [ ] Mobile Menu
-- [ ] Sidebar Menu (Slide-overs)
+- [X] Mobile Menu
+- [X] Sidebar Menu (Slide-overs)
 - [ ] Megamenu
 - [ ] Tooltips
 - [ ] Dropdown menu
