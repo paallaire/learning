@@ -1,0 +1,57 @@
+---
+import Anchor from "@components/site/Anchor.astro";
+---
+
+<Anchor label="Video on full screen (16/9)" />
+
+<div class="w-full h-screen bg-gray-500 p-8">
+  <div class="container-fullscreen bg-green-800">
+    <iframe
+      class="aspect-video w-full"
+      src="https://www.youtube.com/embed/E5HMLEQuccI?si=4s8Y8ygNYJs6XhGI"
+      title="YouTube video player"
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      allowfullscreen></iframe>
+  </div>
+</div>
+
+<Anchor label="Image on full screen (16/9)" />
+
+<div class="w-full h-screen bg-gray-500 p-8">
+  <div class="container-fullscreen flex items-center justify-center bg-green-800">
+    <img src="https://picsum.photos/1600/900" alt="" />
+  </div>
+</div>
+
+<Anchor label="Video on full screen (1/1)" />
+
+<div class="w-full h-screen bg-gray-500 p-8">
+  <div class="container-fullscreen-square bg-green-800">
+    <iframe
+      class="aspect-square w-full"
+      src="https://www.youtube.com/embed/E5HMLEQuccI?si=4s8Y8ygNYJs6XhGI"
+      title="YouTube video player"
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      allowfullscreen></iframe>
+  </div>
+</div>
+
+<Anchor label="Image on full screen (1/1)" />
+
+<div class="w-full h-screen bg-gray-500 p-8">
+  <div class="container-fullscreen-square flex items-center justify-center bg-green-800">
+    <img src="https://picsum.photos/1600/1600" alt="" />
+  </div>
+</div>
+
+<style>
+  .container-fullscreen {
+    @apply aspect-video h-full mx-auto;
+  }
+
+  .container-fullscreen-square {
+    @apply aspect-square h-full mx-auto;
+  }
+</style>
