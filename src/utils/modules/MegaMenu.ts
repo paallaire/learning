@@ -1,6 +1,6 @@
 
 
-// TO DO : Reposition when small screen ?
+// TO DO : Reposition when small screen or responsive ?
 
 export default class MegaMenu {
   private elMegaMenu: HTMLElement;
