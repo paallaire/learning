@@ -1,0 +1,71 @@
+---
+
+---
+
+<div class="image-reveal relative">
+  <img
+    src="https://picsum.photos/id/353/1920/600"
+    width="1920"
+    height="600"
+    alt=""
+    class="image-reveal__image"
+  />
+  <div class="badge badge-secondary absolute top-4 left-4 z-10">On Scroll (animation)</div>
+</div>
+
+<script>
+  import { gsap } from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  const containers = document.querySelectorAll(".image-reveal");
+
+  containers.forEach((element) => {
+    let img = element.querySelector(".image-reveal__image");
+
+    gsap.set(element, { clipPath: "inset(10% 15% 10% 15%)" });
+
+    img?.addEventListener("load", () => {
+
+      img?.classList.add("loaded");
+     
+      ScrollTrigger.create({
+        trigger: element,
+        start: "top center",
+        once: true,
+        onEnter: (self) => {
+          console.log("self:", self);
+
+          gsap.fromTo(
+            element,
+            {
+              clipPath: "inset(10% 15% 10% 15%)",
+            },
+            {
+              clipPath: "inset(0% 0% 0%)",
+              ease: "power2.inOut",
+            }
+          );
+        },
+        // markers: {
+        //   startColor: "green",
+        //   fontSize: "24px",
+        //   fontWeight: "bold",
+        //   indent: 100,
+        // },
+      });
+    });
+  });
+</script>
+
+<style>
+  .image-reveal__image {
+    @apply opacity-0 transition duration-150 ease-linear;
+
+    &.loaded {
+      @apply opacity-100;
+    }
+  }
+
+</style>

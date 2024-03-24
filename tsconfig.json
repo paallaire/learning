@@ -1,31 +1,17 @@
 {
   "compilerOptions": {
     "allowSyntheticDefaultImports": true,
-    "baseUrl": ".",
+    "baseUrl": "./",
     "jsx": "react-jsx",
     "jsxImportSource": "react",
     "paths": {
-      "@components/*": [
-        "./src/components/*"
-      ],
-      "@config/*": [
-        "./src/config/*"
-      ],
-      "@content/*": [
-        "./src/content/*"
-      ],
-      "@layouts/*": [
-        "./src/layouts/*"
-      ],
-      "@pages/*": [
-        "./src/pages/*"
-      ],
-      "@styles/*": [
-        "./src/styles/*"
-      ],
-      "@utils/*": [
-        "./src/utils/*"
-      ]
+      "@components/*": ["./src/components/*"],
+      "@config/*": ["./src/config/*"],
+      "@content/*": ["./src/content/*"],
+      "@layouts/*": ["./src/layouts/*"],
+      "@pages/*": ["./src/pages/*"],
+      "@styles/*": ["./src/styles/*"],
+      "@utils/*": ["./src/utils/*"]
     },
     "resolveJsonModule": true
   },

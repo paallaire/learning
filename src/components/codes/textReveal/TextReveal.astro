@@ -1,0 +1,65 @@
+---
+interface Props {
+  lines: string[];
+}
+
+const { lines } = Astro.props;
+---
+
+<h1 class="text-reveal text-6xl">
+  {lines.map((line) => <div class="text-reveal__line">{line}</div>)}
+</h1>
+
+<script>
+  import { gsap } from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  const containers = document.querySelectorAll(".text-reveal");
+
+  containers.forEach((element) => {
+    const lines = element.querySelectorAll(".text-reveal__line");
+
+    lines.forEach((line) => {
+      const wrapperLine = document.createElement("div");
+
+      wrapperLine.classList.add("text-reveal__wrapper-line");
+      line.after(wrapperLine);
+      wrapperLine.appendChild(line);
+
+      gsap.set(line, {
+        opacity: 0.5,
+        yPercent: 100,
+      });
+    });
+
+    ScrollTrigger.create({
+      trigger: element,
+      start: "top+=10% bottom",
+      once: true,
+      onEnter: (self) => {
+        gsap.to(lines, {
+          yPercent: 0,
+          opacity: 1,
+          duration: 1,
+          stagger: 0.25,
+          ease: "power2.inOut",
+        });
+      },
+      markers: {
+        startColor: "green",
+        fontSize: "24px",
+        fontWeight: "bold",
+        indent: 100,
+      },
+    });
+  });
+</script>
+
+<style is:inline>
+  .text-reveal__wrapper-line {
+    overflow: hidden;
+    position: relative;
+  }
+</style>

@@ -1,0 +1,38 @@
+---
+import Layout from "@layouts/Layout.astro";
+
+import Container from '@components/site/Container.astro';
+import Button from '@components/site/Button.astro';
+import Heading from '@components/site/Heading.astro';
+import Body from '@components/site/Body.astro';
+import TextReveal from "@components/codes/textReveal/TextReveal.astro";
+---	
+
+<Layout title="Welcome to Astro.">
+
+	<Container class="space-y-10" isMain={true} htmlAttributes={{ id: "main" }}>
+
+		<Heading level={1} text="Text reveal" />
+		<TextReveal lines={["Praesent pretium purus", "et elementum elementum", "Mauris porta sodales", "Mollitia quae quo repellat vitae similique"]}  />
+		<Body linesNumber={2} />
+
+		<TextReveal lines={["Mauris porta sodales", "Mollitia quae quo repellat vitae similique", "Praesent pretium purus"]}  />
+		<Body linesNumber={2} />
+
+	</Container>
+
+	<Container class="space-y-10" isMain={true} htmlAttributes={{ id: "main2" }}>
+
+		<Heading level={1} text="Text reveal" />
+		<TextReveal lines={["Praesent pretium purus", "et elementum elementum", "Mauris porta sodales", "Mollitia quae quo repellat vitae similique"]}  />
+		<Body linesNumber={2} />
+
+		<TextReveal lines={["Mauris porta sodales", "Mollitia quae quo repellat vitae similique", "Praesent pretium purus"]}  />
+		<Body linesNumber={2} />
+
+	</Container>
+
+</Layout>
+
+
+

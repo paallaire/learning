@@ -1,0 +1,34 @@
+---
+import Layout from "@layouts/Layout.astro";
+
+import Container from '@components/site/Container.astro';
+import Button from '@components/site/Button.astro';
+import Heading from '@components/site/Heading.astro';
+import Body from '@components/site/Body.astro';
+
+import ImageRevealByClipPath1 from '@components/codes/imagesReveal/ImageRevealByClipPath1.astro';
+import ImageRevealByClipPath2 from '@components/codes/imagesReveal/ImageRevealByClipPath2.astro';
+---	
+
+<Layout title="Welcome to Astro.">
+	<Container class="space-y-10" isMain={true} htmlAttributes={{ id: "main" }}>
+
+		<Heading level={1} text="Image reveal" />
+		<ImageRevealByClipPath2 />
+
+		<Body linesNumber={2} />
+		<ImageRevealByClipPath1 />
+
+		<Body linesNumber={2} />
+		<ImageRevealByClipPath1 />
+
+		<Body linesNumber={2} />
+		<ImageRevealByClipPath2 />
+
+		<Body linesNumber={2} />
+		<ImageRevealByClipPath1 />
+
+	</Container>
+</Layout>
+
+

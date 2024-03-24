@@ -1,0 +1,78 @@
+---
+import Layout from "@layouts/Layout.astro";
+
+import Container from "@components/site/Container.astro";
+import Button from "@components/site/Button.astro";
+import Heading from "@components/site/Heading.astro";
+import Body from "@components/site/Body.astro";
+
+import MarqueeText from "@components/codes/marqueeText/MarqueeText";
+import MarqueeTextOnScroll from "@components/codes/marqueeText/MarqueeTextOnScroll";
+---
+
+<Layout title="Welcome to Astro.">
+  <Container
+    class="space-y-10"
+    isMain={true}
+    htmlAttributes={{ id: "main" }}
+  >
+    <Heading
+      level={1}
+      text="Marquee text"
+    />
+  </Container>
+
+  <MarqueeText
+    reversed={true}
+    client:load
+  />
+
+  <Container
+    class="space-y-10"
+    isMain={true}
+    htmlAttributes={{ id: "main2" }}
+  >
+    <Body linesNumber={1} />
+  </Container>
+
+  <MarqueeText
+    reversed={false}
+    client:load
+  />
+
+  <Container
+    class="space-y-10"
+    isMain={true}
+    htmlAttributes={{ id: "main2" }}
+  >
+    <Body linesNumber={4} />
+  </Container>
+
+  <MarqueeTextOnScroll
+    reversed={false}
+    client:load
+  />
+
+  <Container
+    class="space-y-10"
+    isMain={true}
+    htmlAttributes={{ id: "main2" }}
+  >
+    <Body linesNumber={4} />
+  </Container>
+
+  <MarqueeTextOnScroll
+    reversed={true}
+    client:load
+  />
+
+  <Container
+    class="space-y-10"
+    isMain={true}
+    htmlAttributes={{ id: "main2" }}
+  >
+    <Body linesNumber={4} />
+  </Container>
+
+
+</Layout>

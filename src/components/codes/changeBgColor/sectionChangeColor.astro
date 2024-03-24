@@ -1,0 +1,64 @@
+---
+const { bgColor, textColor } = Astro.props;
+---
+
+<div class="section-change-color h-screen p-20 flex items-center justify-center" data-bg-color={bgColor} data-text-color={textColor}>
+  <div class="prose text-current text-xl">
+    <h2>Mollitia quae quo repellat vitae similique atque dolore eaque</h2>
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam elementum ullamcorper diam a congue. Mauris porta sodales dolor eget sagittis. Vivamus vitae lectus ullamcorper, imperdiet tellus a,
+      interdum sem. Nam finibus magna at mi condimentum porttitor. Proin ac semper quam. Sed sit amet nunc eu massa ornare malesuada sit amet vel nulla. Nullam laoreet gravida odio ac commodo. Nulla
+      pharetra est eget eros vehicula, eu venenatis eros varius. Quisque sed elementum justo. Pellentesque dignissim ligula volutpat leo faucibus ultricies. Vestibulum ante ipsum primis in faucibus
+      orci luctus et ultrices posuere cubilia curae; Integer vitae leo sem. Suspendisse maximus consectetur justo, id consectetur lectus consectetur in. Integer et dignissim felis, sed facilisis
+      lectus. Mauris pretium neque a magna egestas vehicula.
+    </p>
+    <p>
+      In vitae magna vel lorem scelerisque consectetur. Nunc condimentum vestibulum sapien, ac tempus ante lacinia at. Praesent pretium purus et elementum elementum. Etiam nunc felis, sollicitudin
+      eget lectus a, faucibus eleifend velit. Praesent egestas sem euismod, pharetra lorem vel, ultrices nunc. Nullam auctor massa consectetur neque sollicitudin ultricies. Nunc quis fringilla purus,
+      quis vestibulum lorem. Cras mattis neque ante, maximus sagittis metus dignissim ac. Morbi rhoncus ultricies euismod. Cras efficitur ex ac tellus feugiat posuere. Sed maximus velit nec dui
+      pretium, eleifend laoreet quam lacinia. Quisque sollicitudin pretium ligula at vestibulum. Pellentesque fringilla massa in nisl tempus finibus.
+    </p>
+  </div>
+</div>
+
+<script>
+  import { gsap } from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  const sections = document.querySelectorAll(".section-change-color");
+
+  sections.forEach((section, index) => {
+    // background
+    const bgColorCurrent = sections[index].getAttribute("data-bg-color");
+    const bgColorPrevious = index === 0 ? "#000" : sections[index - 1].getAttribute("data-bg-color");
+
+    // text
+    const textColorCurrent = sections[index].getAttribute("data-text-color");
+    const textColorPrevious = index === 0 ? "#fff" : sections[index - 1].getAttribute("data-text-color");
+    console.log('1 / (sections.length - 1):', 1 / (sections.length - 1))
+    ScrollTrigger.create({
+      trigger: section,
+      start: "top center",
+      onEnter: (self) => {
+        gsap.to("body", {
+          backgroundColor: bgColorCurrent!,
+          color: textColorCurrent!,
+          ease: "power2.inOut",
+        });
+      },
+      onLeaveBack: () =>
+        gsap.to("body", {
+          backgroundColor: bgColorPrevious!,
+          color: textColorPrevious!,
+        }),
+      markers: {
+        startColor: "green",
+        fontSize: "24px",
+        fontWeight: "bold",
+        indent: 100,
+      },
+    });
+  });
+</script>

@@ -1,0 +1,34 @@
+---
+import { twMerge } from "tailwind-merge";
+
+interface Props {
+  level?: number;
+  id?: string;
+  text?: string;
+  class?: string;
+}
+
+const { level = 1, id, class: className, text = "Lorem Heading" } = Astro.props;
+const HeadingTag: HTMLHeadingElement = `h${level}`;
+---
+
+<HeadingTag
+  id={id}
+  class={twMerge(className, "")}
+>
+  {text}
+</HeadingTag>
+
+<style>
+  h1 {
+    @apply font-bold text-7xl;
+  }
+
+  h2 {
+    @apply font-bold text-5xl;
+  }
+
+  h3 {
+    @apply font-bold text-3xl;
+  }
+</style>

@@ -1,0 +1,25 @@
+---
+import { twMerge } from "tailwind-merge";
+
+interface Props {
+  class?: string;
+  isMain?: boolean;
+  hasMargin?: boolean;
+  htmlAttributes?: Record<string, string>;
+}
+
+const { class: className, isMain = false, hasMargin = false, htmlAttributes = {} } = Astro.props;
+const isMainClass = isMain ? "py-12" : null;
+const hasMarginClass = hasMargin ? "px-12" : null;
+---
+
+<div class={twMerge(className, isMainClass, hasMarginClass, "container")} {...htmlAttributes}>
+  <slot /> 
+</div>
+
+<style>
+  .container {
+    @apply mx-auto max-w-6xl;
+  }
+</style>
+

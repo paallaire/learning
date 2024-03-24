@@ -1,0 +1,30 @@
+---
+import Layout from "@layouts/Layout.astro";
+
+import SectionChangeColor from '@components/codes/changeBgColor/sectionChangeColor.astro';
+
+const sections = [
+	{
+		bgColor: '#1E3A8A',
+		textColor: '#DBEAFE'
+	},
+	{
+		bgColor: '#4C1D95',
+		textColor: '#F3E8FF'
+	},
+	{
+		bgColor: '#881337',
+		textColor: '#FFE4E6'
+	}
+]
+---	
+
+<Layout title="Welcome to Astro.">
+
+	{sections.map((item) => (
+		<SectionChangeColor bgColor={item.bgColor} textColor={item.textColor}   />
+	))}
+
+</Layout>
+
+

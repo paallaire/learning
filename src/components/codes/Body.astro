@@ -1,0 +1,22 @@
+---
+interface Props {
+  linesNumber: number;
+}
+
+const { linesNumber = 2 } = Astro.props;
+---
+
+<div class="prose text-white text-xl">
+  <h2>Mollitia quae quo repellat vitae similique atque dolore eaque</h2>
+  {
+    [...Array(linesNumber)].map((x, i) => (
+      <p>
+        {x}
+        In vitae magna vel lorem scelerisque consectetur. Nunc condimentum vestibulum sapien, ac tempus ante lacinia at. Praesent pretium purus et elementum elementum. Etiam nunc felis, sollicitudin
+        eget lectus a, faucibus eleifend velit. Praesent egestas sem euismod, pharetra lorem vel, ultrices nunc. Nullam auctor massa consectetur neque sollicitudin ultricies. Nunc quis fringilla
+        purus, quis vestibulum lorem. Cras mattis neque ante, maximus sagittis metus dignissim ac. Morbi rhoncus ultricies euismod. Cras efficitur ex ac tellus feugiat posuere. Sed maximus velit nec
+        dui pretium, eleifend laoreet quam lacinia. Quisque sollicitudin pretium ligula at vestibulum. Pellentesque fringilla massa in nisl tempus finibus.
+      </p>
+    ))
+  }
+</div>
